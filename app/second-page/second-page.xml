@@ -1,0 +1,21 @@
+<!-- <Page xmlns="http://schemas.nativescript.org/tns.xsd">
+<Label text="sec"/>
+</Page> -->
+
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <Page.actionBar>
+        <ActionBar class="action-bar">
+          <Label text="scada" class="action-bar-title" />
+        </ActionBar>
+    </Page.actionBar>
+    <TabView>
+      <TabView.items>
+        <TabViewItem title="Home" ios:iconSource="res://tabIcons/home">
+         <TabViewItem.view>
+         <Label text="scandal"></Label>
+         </TabViewItem.view>
+        </TabViewItem>
+
+      </TabView.items>
+    </TabView> 
+</Page>

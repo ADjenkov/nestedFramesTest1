@@ -1,0 +1,77 @@
+<nsDrawer:RadSideDrawer xmlns:nsDrawer="nativescript-pro-ui/sidedrawer" id="sideDrawer">
+<!--
+RadSideDrawer is a UI component part of the Progress NativeScript UI set of components.
+Learn more about the RadSideDrawer UI component and how it can be customized in this documentation article:
+http://docs.telerik.com/devtools/nativescript-ui/Controls/NativeScript/SideDrawer/getting-started
+The RadSideDrawer component is designed to be used as a root element to the <Page> and
+it shouldn't have any other siblings other than the <ActionBar> component.
+-->
+
+    <nsDrawer:RadSideDrawer.drawerTransition>
+        <nsDrawer:SlideInOnTopTransition/>
+    </nsDrawer:RadSideDrawer.drawerTransition>
+
+    <!--
+    Use the RadSideDrawer.drawerContent component to display the content of the app drawer on this page.
+    Always wrap content in a layout component.
+    -->
+    <nsDrawer:RadSideDrawer.drawerContent>
+        <StackLayout>
+            <!--
+            The drawer custom component view is where you define what will be displayed in the app drawer.
+            Feel free to customize layouts and components to change how your app drawer looks.
+            -->
+            <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left" loaded="onLoaded">
+                <StackLayout class="sidedrawer-header">
+                    <Label class="sidedrawer-header-image fa" text="&#xf2bd;" />
+                    <Label class="sidedrawer-header-brand" text="User Name" />
+                    <Label class="footnote" text="username@mail.com" />
+                </StackLayout>
+
+                <ScrollView row="1">
+                    <StackLayout class="sidedrawer-content" row="1">
+                        <GridLayout columns="auto, *" class="sidedrawer-list-item selected"
+                            route="home/home-page" tap="onNavigationItemTap">
+                            <Label row="0" col="0" text="&#xf015;" class="fa" />
+                            <Label row="0" col="1" text="Home" class="p-r-10" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Browse' ? ' selected': '') }}"
+                            route="browse/browse-page" tap="onNavigationItemTap">
+                            <Label row="0" col="0" text="&#xf1ea;" class="fa" />
+                            <Label row="0" col="1" text="Browse" class="p-r-10" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Search' ? ' selected': '') }}"
+                            route="search/search-page" tap="onNavigationItemTap">
+                            <Label row="0" col="0" text="&#xf002;" class="fa" />
+                            <Label row="0" col="1" text="Search" class="p-r-10" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Featured' ? ' selected': '') }}"
+                            route="featured/featured-page" tap="onNavigationItemTap">
+                            <Label row="0" col="0" text="&#xf005;" class="fa" />
+                            <Label row="0" col="1" text="Featured" class="p-r-10" />
+                        </GridLayout>
+
+                        <StackLayout class="hr-light"></StackLayout>
+
+                        <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"
+                            route="settings/settings-page" tap="onNavigationItemTap">
+                            <Label row="0" col="0" text="&#xf013;" class="fa" />
+                            <Label row="0" col="1" text="Settings" class="p-r-10" />
+                        </GridLayout>
+                    </StackLayout>
+                </ScrollView>
+            </GridLayout>
+        </StackLayout>
+    </nsDrawer:RadSideDrawer.drawerContent>
+
+    <!--
+    Use the RadSideDrawer.mainContent sdcomponent to display the content of the page when you have an app drawer.
+    Always wrap content in a layout component.
+    -->
+    <nsDrawer:RadSideDrawer.mainContent>
+        <Frame></Frame>
+    </nsDrawer:RadSideDrawer.mainContent>
+</nsDrawer:RadSideDrawer>
